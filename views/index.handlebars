@@ -1,24 +1,32 @@
-<h1>Kimchi's!</h1>
+<div class="container">
+  <div class="row justify-content-around">
+  <h2 class="notGobbled">Kimchi's that are not yet gobbled.</h2>
+    <div class="col">
+      <ul class="notGobbled">
+        {{#each kimchis}}
+          {{#unless gobbled}}
+            {{> kimchis/kimchi-block gobbled=true}}
+          {{/unless}}
+        {{/each}}
+      </ul>
 
-<h2>Kimchi's that are not yet gobbled</h2>
+      <div class="text-center">
+        <img src="../assets/img/Modelsheet_kimchi.png" alt="cute kimchi jar"></img>
+      </div>
 
-<ul>
-  {{#each kimchis}}
-    {{#unless gobbled}}
-      {{> kimchis/kimchi-block gobbled=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Kimchi's that have been gobbled!</h2>
-
-<ul>
-  {{#each kimchis}}
-    {{#if gobbled}}
-      {{> kimchis/kimchi-block gobbled=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+      <div class="col">
+        <h2 class="gobbledUp">Kimchi's that have been gobbled!</h2>
+        <ul class="gobbledUp">
+          {{#each kimchis}}
+            {{#if gobbled}}
+              {{> kimchis/kimchi-block gobbled=false}}
+            {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h2>Add a Kimchi</h2>
 <form class="create-form">
@@ -33,6 +41,8 @@
     <input type="radio" name="gobbled" value="1" checked> Gobbled!<br>
     <input type="radio" name="gobbled" value="0"> Ungobbled!
   </div>
-
-  <button type="submit">Add Kimchi</button>
+  <div class="text-center">
+    <p>Click the inevitable flatulence to add your Kimchi!</p>
+    <button type="submit"><img src="../../assets/img/ChowKimchi.png" alt="fart cloud with eyes"></img></button>
+  </div>
 </form>

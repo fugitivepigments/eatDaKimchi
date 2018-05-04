@@ -90,7 +90,7 @@ var orm = {
     queryString += " WHERE ";
     queryString += condition;
 
-    connection.query(queryString, function(err, results) {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
