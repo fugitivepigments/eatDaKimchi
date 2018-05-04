@@ -1,12 +1,19 @@
 // Require dependencies
 var mysql = require('mysql');
+var connection;
 // Create connection to db
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'kimchi_db'
-});
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'kimchi_db'
+  });
+};
+
 // Initiate connection, error handling
 connection.connect(function(err) {
   if (err) {
